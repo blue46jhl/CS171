@@ -201,6 +201,9 @@ function draw_chart(a) {
             svg.append("g")
                 .attr("class", "axis2")
                 .attr("transform", "translate(" + 50 + ",0)")
+                .attr("stroke", "black")
+                .style("font-size", "14px")
+                .attr("stroke-width", ".7px")
                 .call(yAxis)
 
             svg.append("g")

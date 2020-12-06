@@ -23,6 +23,15 @@ header .overlay{
 }
 
 
+footer {
+    position: fixed;
+    text-align: center;
+    bottom: -25%;
+    width:100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 100;
+}
+
 h1 {
     line-height: 1;
     margin-top: 0;
@@ -316,7 +325,7 @@ body {
 #projection {
     max-width: 1920px;
     width: 100%;
-    background-color: rgb(143, 125, 108);
+    background-color: rgb(194, 178, 164);
     height: 115vh;
     padding-top: 100px;
     border: thin solid darkgrey;
