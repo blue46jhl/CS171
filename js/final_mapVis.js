@@ -44,7 +44,9 @@ class MapVis {
             .attr("font-size", "16px")
             .attr('transform', `translate(${vis.width / 2}, 20)`)
             .attr('text-anchor', 'middle')
-            .attr("font-family", "georgia");
+            .attr("font-family", "Bookman Old Style")
+            .attr("font-weight", "bold")
+            .attr("fill", "saddlebrown");
 
         // Create an projection
         vis.projection = d3.geoMercator()

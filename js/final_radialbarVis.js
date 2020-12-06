@@ -49,8 +49,10 @@ class RadialBarVis {
             .text('What happens during summer time?')
             .attr('transform', `translate(${vis.width / 2 - 235}, -240)`)
             .attr('text-anchor', 'middle')
-            .attr("font-family", "Georgia")
-            .attr("font-size", "16px");
+            .attr("font-family", "Bookman Old Style")
+            .attr("font-size", "16px")
+            .attr("font-weight", "bold")
+            .style("fill", "saddlebrown");
 
         // Axis title
         vis.svg.append("text")

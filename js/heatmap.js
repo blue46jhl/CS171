@@ -1,7 +1,40 @@
 // Zipcode나 경도,위도를 입력하면 Zip_data+station.csv 파일에서 station 이름을 따와서 station_name variable에 입력하게 할 계획이었습니다!
 
+d3.csv("data/Zip_data+station.csv", (row) => {
+    row = row.City + ", " + row.State  + ", " + row.Zip
+    return row
+}).then((data) => {
+    dataset = data;
+    let ziplist_original = dataset;
+
+    var ziplist = [];
+    $.each(ziplist_original, function(i, el){
+        if($.inArray(el, ziplist) === -1) ziplist.push(el);
+    });
+
+
+    const list = document.getElementById('zipcodelist');
+
+    ziplist.forEach(item => {
+        let option = document.createElement('option');
+        option.value = item;
+        list.appendChild(option);
+    });
+});
+
+
 function saveUserData() {
+
+    document.getElementById("Chart_1").innerHTML = "";
+    document.getElementById("Chart_2").innerHTML = "";
+    document.getElementById("Chart_3").innerHTML = "";
+    document.getElementById("legend").innerHTML = "";
+
+
     let zipcode = document.getElementById('userdata').value;
+    zipcode = zipcode.split(",")[2]
+
+    console.log(zipcode)
 
     let station_name
     d3.csv("data/Zip_data+station.csv", (row) => {
@@ -14,7 +47,6 @@ function saveUserData() {
                 station_name = dataset[i]["Station_Name"];
             }
         }
-        console.log(station_name)
         document.getElementById("title_location").innerHTML = "Heat index hour -  " + station_name;
     });
 
@@ -27,7 +59,7 @@ function saveUserData() {
 
 // Annual chart 시작
     function chart1() {
-        let margin = {top: 10, right: 60, bottom: 30, left: 60};
+        let margin = {top: 10, right: 60, bottom: 30, left: 75};
 
         let width = 1215 - margin.left - margin.right,
             height = 280 - margin.top - margin.bottom;
@@ -191,16 +223,13 @@ function saveUserData() {
                     count++
                 }
             }
-            document.getElementById("total_nv").innerHTML = "Total annual hour: 8,760 hours"
-                + "<br>" + " Heat index hour: " + count + " hours"
-                + "<br>" + " Heat index percent: " + Math.round(count / 8760 * 100) + "%";
         }
     }
 
 
 // Monthly chart 시작
     function chart2(i, k) {
-        let margin = {top: 20, right: 60, bottom: 40, left: 60};
+        let margin = {top: 5, right: 60, bottom: 40, left: 60};
 
         let width = 400 - margin.left - margin.right,
             height = 300 - margin.top - margin.bottom;
@@ -400,7 +429,7 @@ function saveUserData() {
                     else {
                         tag = "th";
                     }
-                    document.getElementById("day_subtitle").innerHTML = k + (i+1) + tag;
+                    document.getElementById("day_subtitle").innerHTML = k + " " + (i+1) + tag;
                     d3.select("#Chart_3")
                         .select("svg")
                         .remove()
@@ -446,7 +475,6 @@ function saveUserData() {
             height = 300 - margin.top - margin.bottom;
 
 
-
         d3.json("data/heat_index_celcius.json", (row) => {
             return row
         }).then( data => {
@@ -461,11 +489,11 @@ function saveUserData() {
                     .append("g")
 
                 svg.append("text")
-                    .text("Please select the day from the monthly chart")
+                    .text("Please select a day from the monthly chart")
                     .attr("class", "message")
                     .attr("text-anchor", "middle")
                     .attr("x", width/2 + margin.left)
-                    .attr("y", height/2 + margin.top)
+                    .attr("y", height/2 + margin.top - 10)
             }
             // i값 (monthly chart에서의 day 값)이 주어지면 daily 차트 생성
             else {
@@ -482,12 +510,12 @@ function saveUserData() {
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
-                .attr("transform", "translate(" + (width + margin.left + margin.right) / 2 + "," + (height + margin.top + margin.bottom) / 2 + ")");
+                .attr("transform", "translate(" + (width + margin.left + margin.right) / 2 + "," + (height - 60 + margin.top + margin.bottom) / 2 + ")");
 
             // daily chart 생성
             var arc = d3.arc()
                 .innerRadius(0)
-                .outerRadius(120);
+                .outerRadius(100);
 
             // hourly NV data에 따라 색 지정
             var color = [];
@@ -505,7 +533,6 @@ function saveUserData() {
                     color.push("white");
                 }
             }
-
 
             // daily chart에 색 삽입
             var pie = d3.pie();
@@ -548,8 +575,8 @@ function saveUserData() {
                         y = c[1],
                         // pythagorean theorem for hypotenuse
                         h = Math.sqrt(x*x + y*y);
-                    return "translate(" + (x/h * 135) +  ',' +
-                        (y/h * 135 + 6) +  ")";
+                    return "translate(" + (x/h * 115) +  ',' +
+                        (y/h * 115 + 6) +  ")";
                 })
                 .attr("text-anchor", "middle")
                 .text((d ,i) => {
@@ -562,8 +589,6 @@ function saveUserData() {
                     else {
                         return (i - 12) + "pm";
                     }});
-
-
         }
     }
 
@@ -619,13 +644,9 @@ function saveUserData() {
             .text("Extreme danger (heat index 51>°C)")
             .attr("class", "legend")
             .attr("x", 40)
-            .attr("y", 85)
+            .attr("y", 85);
 
     }
-
-
-
-
 
     chart1()
 

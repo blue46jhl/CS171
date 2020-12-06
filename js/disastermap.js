@@ -22,11 +22,11 @@ class DisasterMapVis{
         let vis = this;
         
         // defining margins and dimensions for map vis
-        vis.margin = {top: 50, right:40, bottom: 40, left: 60};
+        vis.margin = {top: 10, right:20, bottom: 40, left: 10};
         vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
         // defining margins and dimensions for line vis
-        vis.margin_2 = {top: 10, right:40, bottom: 10, left: 60};
+        vis.margin_2 = {top: 10, right:20, bottom: 10, left: 10};
         vis.width_2 = $("#" + vis.parentElement2).width() - vis.margin_2.left - vis.margin_2.right;
         vis.height_2 = $("#" + vis.parentElement2).height() - vis.margin_2.top - vis.margin_2.bottom;
 
@@ -97,7 +97,6 @@ class DisasterMapVis{
             .range(["orange", "darkred"])
 
         // // create a legend
-
         vis.defs = vis.svg.append("defs");
   
         // deining a linear gradient for continuous color legend
@@ -112,7 +111,7 @@ class DisasterMapVis{
 
         vis.x_2 = d3.scaleLinear()
             .domain([0, 3832])
-            .range([0,1000])
+            .range([0,700])
         
         vis.xAxis_2 = vis.svg_2.append("g")
             .attr("transform", "translate(5,30)")

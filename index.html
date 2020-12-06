@@ -38,10 +38,10 @@
           <a class="nav-item nav-link" href="#" data-target="#carouselExampleIndicators" data-slide-to="5">Data: Heat Waves</a>
         </li>
         <li class="nav-item">
-          <a class="nav-item nav-link" href="#" data-target="#carouselExampleIndicators" data-slide-to="6">Cone Chart</a>
+          <a class="nav-item nav-link" href="#" data-target="#carouselExampleIndicators" data-slide-to="6">Projections</a>
         </li>
         <li class="nav-item">
-          <a class="nav-item nav-link" href="#" data-target="#carouselExampleIndicators" data-slide-to="7"> The Future</a>
+          <a class="nav-item nav-link" href="#" data-target="#carouselExampleIndicators" data-slide-to="7">The Future</a>
         </li>
         <li class="nav-item">
           <a class="nav-item nav-link" href="#" data-target="#carouselExampleIndicators" data-slide-to="8">Natural Disasters</a>
@@ -133,7 +133,7 @@
                     </div>
                     <div class="col-2" >
                       <div class = "row">
-                          <p style="color: saddlebrown;font-size: 14px; padding-left: 30px; padding-top: 0px;font-family: Georgia;">Across the country, heat caused at least 7,558 deaths between 1999 and 2010. Moreover, according to the CDC, this number has almost doubled over the last decade to 13757. Heat is thus the leading weather-related cause of deaths in the United States. </p>
+                          <p style="color: saddlebrown;font-size: 13px; padding-left: 25px; padding-top: 0px;font-family: Montserrat;">Across the country, heat caused at least 7,558 deaths between 1999 and 2010. Moreover, according to the CDC, this number has almost doubled over the last decade to 13757. Heat is thus the leading weather-related cause of deaths in the United States. </p>
                       </div>
                     </div>
                   </div>
@@ -192,7 +192,7 @@
 
           <!--Casualities text-->
           <div class="carousel-item">
-            <img class="d-block w-100" src="img/test.jpg">
+            <img class="d-block w-100" src="img/test.jpg" alt = "Casualties">
               <div class="transition-page">
                 <div class="quote">
                   <blockquote style = "color: lightyellow">Heat now causes more deaths than hurricanes, tornadoes or floods in most years, creating a new public health threat.
@@ -257,7 +257,7 @@
 
           <!--Vulnerable population text-->
           <div class="carousel-item">
-            <img class="d-block w-100" src="img/phoenix.jpg" style = "opacity: 0.8">
+            <img class="d-block w-100" src="img/phoenix.jpg" style = "opacity: 0.8" alt = "Vulnerable population">
             <div class="transition-page">
               <div class="quote">
                 <blockquote style = "font-size: 28px; color: lightyellow">Phoenix and other cities of the Southwest are the canary in the coal mine. We really need to figure out what piece or pieces of the system are lacking.
@@ -265,27 +265,86 @@
                 <cite style = "color: lightyellow">The New York Times</cite>
               </div>
               <div>
-                <p style = "padding-top: 20px; font-family:'Special Elite', 'cursive'; color: whitesmoke; font-size: 16px">
-                Seasonal and regional patterns in heat-related mortality are evident. Over 80% of heat-related mortality from 1999-2010 occurred during June to September when the average heat index is above 32 celsius. Moreover, taking population into account, states like Arizona and Nevada suffer the most from heat. This is likely due to the long summer time and levels of urbanizations in cities across these states. However, according to David Hondula, a professor at the School of Geographical Sciences and Urban Planning at Arizona State University, the precise reasons underlying the surprising amount of heat-related mortality in these places remain unclear. Knowing the detrimental effects of extreme heat, we invite you to explore average changes in weather over a year across the country.
+                <p style = "padding-top: 20px; font-family:'Special Elite', 'cursive'; color: whitesmoke; font-size: 20px">
+                Seasonal and regional patterns in heat-related mortality are evident. Over 80% of heat-related mortality from 1999-2010 occurred during June to September when the average heat index is above 32 celsius. Moreover, taking population into account, states like Arizona and Nevada suffer the most from heat. This is likely due to the long summer time and levels of urbanizations in cities across these states. However, the precise reasons underlying the surprising amount of heat-related mortality in these places have not yet been documented. Knowing the detrimental effects of extreme heat, we invite you to explore average changes in weather over a year across the country.
                 </p>
               </div>
             </div>
           </div>
 
-
           <!--Heat Waves-->
           <div class="carousel-item">
-            <img class="d-block w-100" src="img/outdoors.jpg" alt="Fourth slide">
-          </div>
+            <img class="d-block w-100" src="img/city.jpg" alt="Fourth slide">
+              <div class="section" id="heatwaveSection">
+                <div class = "container" id = "heatmap">
+                <h4 id="opening">Instructions</h4>
+                  <ul class="opening2">
+                    <li>Please input a name of the city you are interested in to find when is dangerous to stay outside. <span style = "font-size: 10px; font-style: italic">Note: when input zip code, please remove the zero (e.g., input 2138 instead of 02138)</span></li>
+                    <li>We support 18,664 cities and the weather data were collected from the 1,018 weather stations located at the airports around the US over the past 30 years</li>
+                  </ul>
+                <center>
+                  <form id="form1">
+                    <input class="zipcode" list="zipcodelist"  id="userdata" autocomplete="off" class="form-control" placeholder = "Input city or zipcode">
+                    <datalist id="zipcodelist"></datalist>
+                    <button class="zipcode" type="button" onclick="saveUserData()" class="btn btn-danger btn-lg mx-auto w-50 text-center">Enter</button>
+                  </form>
+                </center>
+                  <ul class = "opening2">
+                    <li>Click on the annual chart to zoom into monthly or daily chart</li>
+                    <li>Hover on the chart and statistics will appear for a given time period</li>
+                    <li>When is the most dangerous day in your city? Do you still remember from the last slide which states in the US are most vulnerable to heat?</li>
+                  </ul>
+                <h1 class="title2" id="title_location"></h1>
+                <p class="subtitle">Annual Weather Chart</p>
+                <div id="total_nv"></div>
+                <div class="row justify-content-center" style="height: 200px;">
+                  <div class="align-self-center">
+                    <div id="Chart_1"></div>
+                  </div>
+                </div>
+                <div class="row justify-content-center" style="height: 80px; padding-top: 50px">
+                  <div class="col-md-4">
+                    <p class="subtitle" id="month_subtitle" style="padding-top: 30px; padding-left: 100px">Monthly</p>
+                    <div id="Chart_2"></div>
+                  </div>
+                  <div class="col-md-4">
+                    <p class="subtitle" id="day_subtitle" style="padding-top: 30px; padding-left: 150px">Daily</p>
+                    <div id="Chart_3" style="padding-left: 50px; padding-bottom: 100px"></div>
+                  </div>
+                  <div class="col-md-4" style="text-align:center;">
+                    <p class="subtitle" style="padding-top: 30px; padding-left: 100px">Legend</p>
+                    <p style = "padding-left: 100px; font-style: italic; font-size: 10px; color: saddlebrown; font-family: gorgia; ">Note: Heat index hour refers to the number of hours that is classified as one of the below conditions
+                    </p>
+                    <div id="legend" style="padding-top: 0px; padding-left: 75px"></div>
+                  </div>
+                </div>
+               </div>
+              </div>
+             </div>
 
-          <!--Cone Visualization-->
+          <!--Projections-->
           <div class="carousel-item">
-            <img class="d-block w-100" src="img/outdoors.jpg" alt="Fourth slide">
-          </div>
+            <img class="d-block w-100" src="img/foundation.jpg" alt="Fifth slide">
+              <div class="section" id="projectionsSection">
+                <div class = "container" id = "projection">
+                  <p id="opening">In the absence of major action to stop climate change, what might Americans experience over the next 50 years?</p>
+                  <p class="opening2" style = "text-align: center">This visualization displays ten cities, representing the different climates across the US</p>
+                    <p class="opening2" style = "text-align: center">(Scroll to the bottom and click on the button to initialize the visualization)</p>
+                    <div class="row justify-content-center" style="height: 700px;margin-bottom: 40px">
+                    <div class="align-self-center">
+                      <b class = scale style = "font-family:'Special Elite', 'cursive';">Sort by: </b>
+                      <button id="btn1" onclick="chart_name()"> By name </button>
+                      <button id="btn2" onclick="chart_hour()"> By hours </button>
+                      <div id="projectionVis"></div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
 
           <!--Climax Quote-->
           <div class="carousel-item">
-            <img class="d-block w-100" src="img/climate.jpg" alt="Fifth slide">
+            <img class="d-block w-100" src="img/climate.jpg" alt="climax quote">
             <div class="transition-page">
               <div class="quote">
                 <blockquote style = "font-size: 24px; color: lightyellow">If you want to understand the kind of damage that climate change will inflict, look at COVID-19 and spread the pain out over a much longer period of time. The loss of life and economic misery caused by this pandemic are on par with what will happen regularly if we do not eliminate the world’s carbon emissions.
@@ -294,7 +353,8 @@
               </div>
               <div>
                 <p style = "padding-top: 20px; font-family:'Special Elite', 'cursive'; color: whitesmoke; font-size: 20px">
-                Heat waves are only mere indicators of a looming threat: climate change. With the increase in natural disasters such as wildfires and hurricanes, to the loss of wildlife and deforestation, we are at the edge of an irreversible climate apocalypse. The time to act is now.
+                  Projections indicate that the frequency, duration, and intensity of extreme heat will continue to increase as a consequence of climate change. This means the potential heat wave season will be longer, and extreme heat could catch communities off-guard if it happens earlier or later than expected in a particular area. This also means no escaping the heat even during nighttime.
+                  Unfortunately, heat waves are only mere indicators of a looming threat: climate change. With the increase in natural disasters such as wildfires and hurricanes, to the loss of wildlife and deforestation, we are at the edge of an irreversible climate apocalypse. The time to act is now.
                 </p>
               </div>
             </div>
@@ -307,7 +367,7 @@
               <div class="container-fluid" style="border-radius: 5px">
                 <div class="row" style="height: 85vh; width:80vw;background: lightyellow; padding-left: 1vh; padding-bottom: 1vh; padding-right: 1vh; padding-top: 1vh; border-radius: 10px;">
 
-                    <!--LEFT-->
+                  <!--LEFT-->
                   <div class="col-7">
                     <div class="row">
                       <div id="disasterdiv" class="align-self-center" style="height: 70vh; width:100vh; border: thin solid darkorange; border-radius: 5px; background: #FCE8D6"></div>
@@ -319,24 +379,24 @@
 
                   <!--RIGHT-->
                   <div class="col-5">
-                    <div class="row" style="padding-left: 1vh; padding-bottom: 1vh; padding-right: 1vh; padding-top: 1vh">
-                      <div class="col" style="border: thin solid darkorange; border-radius: 2px; background: #FCE8D6">
+                    <div class="row" style="padding-left: 15vh; padding-bottom: 1px; padding-right: 1vh; padding-top: 1px">
+                      <div class="col" style="padding-top: 0; border: thin solid darkorange; border-radius: 2px; background: #FCE8D6">
                         <div class="row">
                           <div class="col-12">
                             <div class = "row" style="color:rgb(164, 51, 56); font-weight: bold; font-size: 24px;  padding: 10px; font-family: georgia;">
                               <p> Historical Natural Disasters (1930-2010)</p>
                               <p style="font-size: 12px; color: saddlebrown"> (use mouse to hover over the states in the US Map) </p>
                             </div>
-                            <div class="row" style="border-radius: 5px; background: #ead3c0; padding-left: 5px">
-                              <p id="description_disaster"> <br> Natural disasters (e.g. wildfires, hurricanes) have statisticial correlation with heat waves. <br> <br> <br>
-                              In this visualization, we display a map of the United States overlayed by colors representing the heat index of each state. The heat index
-                              for each state is captured by normalized temperature data gathered from regional weather stations. Through thousands of data points from various weather stations per state,
-                              this visualization accurately shows each state's average heat index, ranging from 0 to 21, along this colorscale. <br> <br> <br>
-                              Relative to the average historical number of natural disasters per state (roughly 750), we observe that hotter states record historically higher number of natural disasters. 
-                              States with a lower heat index record lower numbers, with total numbers of disaster belows the 750 average. We conclude that there is a positive correlation between historical
-                              temperatures and natural disasters. <br> <br> <br>
-                            </p>
-                          </div>
+                            <div class="row" style="border-radius: 5px; background: #ead3c0; padding-left:5px">
+                              <p id="description_disaster">Natural disasters (e.g. wildfires, hurricanes) have statisticial correlation with heat waves. <br> <br>
+                                In this visualization, we display a map of the United States overlayed by colors representing the heat index of each state. The heat index
+                                for each state is captured by normalized temperature data gathered from regional weather stations. Through thousands of data points from various weather stations per state,
+                                this visualization accurately shows each state's average heat index, ranging from 0 to 21, along this colorscale. <br> <br>
+                                Relative to the average historical number of natural disasters per state (roughly 750), we observe that hotter states record historically higher number of natural disasters.
+                                States with a lower heat index record lower numbers, with total numbers of disaster belows the 750 average. We conclude that there is a positive correlation between historical
+                                temperatures and natural disasters.
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -345,7 +405,7 @@
                 </div>
               </div>
             </div>
-          </div>D
+          </div>
 
           <!--Climate Change-->
           <div class="carousel-item">
@@ -355,56 +415,55 @@
                 <div class="row" style="height: 75vh; width: 80vw; padding-left: 1vh; padding-bottom: 1vh; padding-right: 1vh; padding-top: 1vh">
                   <div class="col-12">
                     <!--Visualization-->
-                      <!-- <div class="col" style="border: thin solid grey; border-radius: 5px; background: #FCE8D6"> -->
-                        <div class="row">
-                          <!-- <div class="col-8"> -->
-                          <div class="row" style="height: 120%; width:35%; padding-left: 60px">
-                            <p class="align-self-center" >
-                              <select id='climateCategorySelector' class="custom-select align-self-center" onchange="categoryChangeCarbon()">
-                                <option value="cum_heatwaves" selected>Cumulative Heat Wave Days</option>
-                                <option value="avg_heatwaves">Average Heat Wave Days</option>
-                              </select>
-                            </p>
-                          </div>
-                          <!-- </div> -->
-                        </div>
-                        <div class="row" style="padding-left: 35px">
-                          <div id="carbondiv" class="align-self-center" style="height: 28vh; width: 75vw; border: thin solid grey; border-radius: 5px; background: #FCE8D6;"></div>
-                        </div>
-                        <div class="row" style="padding-left: 35px">
-                          <div id="brushDiv" class ="align-self-center" style="height: 12vh; width: 75vw; border: thin solid grey; border-radius: 5px; background: #FCE8D6"></div>
-                        </div>
+                    <!-- <div class="col" style="border: thin solid grey; border-radius: 5px; background: #FCE8D6"> -->
+                    <div class="row">
+                      <!-- <div class="col-8"> -->
+                      <div class="row" style="height: 120%; width:35%; padding-left: 60px">
+                        <p class="align-self-center" >
+                          <select id='climateCategorySelector' class="custom-select align-self-center" onchange="categoryChangeCarbon()">
+                            <option value="cum_heatwaves" selected>Cumulative Heat Wave Days</option>
+                            <option value="avg_heatwaves">Average Heat Wave Days</option>
+                          </select>
+                        </p>
+                      </div>
+                      <!-- </div> -->
                     </div>
-                    <div class="col-12">
-                      <div class="row" style="padding-left: 1vh; padding-bottom: 1vh; padding-right: 1vh; padding-top: 1vh">
-                        <div class="col" style="border: thin solid darkorange; border-radius: 10px; background: #FCE8D6">
-                          <div class="row">
-                            <div class="col-12">
-                              <div class = "row" style="color:rgb(164, 51, 56); font-weight: bold; font-size: 24px;  padding: 10px; font-family: georgia;">
-                                <p> Correlation between CO<sub>2 </sub> Emissions and Heat Waves <span style="font-size: 18px; color: saddlebrown"> (use the mouse to brush over timeline) </span></p>
-                              </div>
-                              <div class="row" style="border-radius: 5px; background: #ead3c0; padding-left: 5px">
-                                <p id="description_disaster"> <br> Climate Change. The biggest issue facing the 21<sup>st</sup> Century. In this visualization, we explore the correlation between 
-                                  the increase in carbon dioxide emissions (1981-2010) and the heat wave trends in North America. <br> <br>
-                                  Carbon dioxide emissions, the primary contributer to our modern climate crisis, have been steadily increasing within this past few decades. The increasing
-                                  number of heat waves recorded annually in this 30-year timeframe indicate a positive correlation betweem the two phenomena. As the Earth warms due to the effects
-                                  of climate change, heat waves increase in frequency and have disastrous consequences, as seen in the previous visualizations. In order to mitigate the effects of a warming Earth
-                                  , we must reduce our carbon footprint and find solutions to prevent climate change. 
-                              </p>
+                    <div class="row" style="padding-left: 35px">
+                      <div id="carbondiv" class="align-self-center" style="height: 28vh; width: 75vw; border: thin solid grey; border-radius: 5px; background: #FCE8D6;"></div>
+                    </div>
+                    <div class="row" style="padding-left: 35px">
+                      <div id="brushDiv" class ="align-self-center" style="height: 12vh; width: 75vw; border: thin solid grey; border-radius: 5px; background: #FCE8D6"></div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="row" style="padding-left: 1vh; padding-bottom: 1vh; padding-right: 1vh; padding-top: 1vh">
+                      <div class="col" style="border: thin solid darkorange; border-radius: 10px; background: #FCE8D6">
+                        <div class="row">
+                          <div class="col-12">
+                            <div class = "row" style="color:rgb(164, 51, 56); font-weight: bold; font-size: 24px;  padding: 10px; font-family: georgia;">
+                              <p> Correlation between CO<sub>2 </sub> Emissions and Heat Waves <span style="font-size: 18px; color: saddlebrown"> (use the mouse to brush over timeline) </span></p>
                             </div>
+                            <div class="row" style="border-radius: 5px; background: #ead3c0; padding-left: 5px">
+                              <p id="description_disaster"> <br> Climate Change. The biggest issue facing the 21<sup>st</sup> Century. In this visualization, we explore the correlation between
+                                the increase in carbon dioxide emissions (1981-2010) and the heat wave trends in North America. <br> <br>
+                                Carbon dioxide emissions, the primary contributer to our modern climate crisis, have been steadily increasing within this past few decades. The increasing
+                                number of heat waves recorded annually in this 30-year timeframe indicate a positive correlation betweem the two phenomena. As the Earth warms due to the effects
+                                of climate change, heat waves increase in frequency and have disastrous consequences, as seen in the previous visualizations. In order to mitigate the effects of a warming Earth
+                                , we must reduce our carbon footprint and find solutions to prevent climate change.
+                              </p>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
           <!--Next Steps-->
           <div class="carousel-item">
-            <img class="d-block w-100" src="img/outdoors.jpg" alt="Seventh slide">
+            <img class="d-block w-100" src="img/outdoors.jpg" alt="Next Steps">
             <div class="transition-page">
               <div class="quote">
                 <blockquote style = "font-size: 24px; color: lightyellow">We need unprecedented changes in all aspects of society to deal with climate change. Everyone is going to have to be involved."
@@ -442,23 +501,24 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 	<!-- d3 -->
-  <script src="https://d3js.org/d3.v6.min.js"></script>
-  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 	<script src="https://d3js.org/topojson.v2.min.js"></script>
-  <script src="https://d3js.org/d3-geo.v1.min.js"></script>
-  <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 
-  <!-- Your implementation -->
-  <script src="js/main.js"></script>
-  <script src="js/heatmap.js"></script>
-  <script src="js/final_dotVis.js"></script>
-  <script src="js/final_popVis.js"></script>
-  <script src="js/final_casualtyVis.js"></script>
-  <script src="js/final_brushVis.js"></script>
-  <script src="js/final_radialbarVis.js"></script>
-  <script src="js/final_mapVis.js"></script>
-  <script src="js/carbonVis.js"></script>
-  <script src="js/brushVis.js"></script>
-  <script src="js/disastermap.js"></script>
-</body>
+    <!-- Your implementation -->
+    <script src="js/main.js"></script>
+    <script src="js/heatmap.js"></script>
+    <script src="js/cone.js"></script>
+    <script src="js/final_dotVis.js"></script>
+    <script src="js/final_popVis.js"></script>
+    <script src="js/final_casualtyVis.js"></script>
+    <script src="js/final_brushVis.js"></script>
+    <script src="js/final_radialbarVis.js"></script>
+    <script src="js/final_mapVis.js"></script>
+    <script src="js/carbonVis.js"></script>
+    <script src="js/brushVis.js"></script>
+    <script src="js/disastermap.js"></script>
+  </body>
 </html>

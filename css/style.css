@@ -103,7 +103,7 @@ cite {
 
 #description_disaster {
     font-family: 'Montserrat';
-    font-size: 16px;
+    font-size: 14px;
     color: rgb(164,51,56);
 }
 
@@ -175,29 +175,61 @@ body {
     /*background-color: floralwhite;*/
 }
 
-.title {
-    font: 20px Arial, sans-serif;
+.zipcode {
+    font: 16px georgia;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: saddlebrown;
+}
+
+.title2 {
+    font: 20px georgia;
     font-weight: bold;
-    padding-top: 10px;
+    padding-top: 2px;
     padding-bottom: 0px;
     text-align: center;
+    color: saddlebrown;
+}
+
+#opening {
+    font: 20px georgia;
+    font-weight: bold;
+    padding-top: 0px;
+    text-align: center;
+    color: saddlebrown;
+}
+
+.opening2 {
+    font: 14px georgia;
+    color: saddlebrown;
 }
 
 .subtitle {
-    font: 20px Arial, sans-serif;
+    font: 16px georgia;
     text-align: center;
+    color: white;
+    color: saddlebrown;
+    font-weight: bold;
+}
+
+.instruction {
+    font: 12px georgia;
+    text-align: center;
+    color: saddlebrown;
 }
 
 .legend {
-    font: 13px Arial, sans-serif;
+    font: 13px georgia;
+    color: saddlebrown;
 }
 
 .message {
-    font: 14px Arial, sans-serif;
+    font: 14px georgia;
 }
 
 .clock {
-    font: 10px Arial, sans-serif;
+    font: 10px georgia;
 }
 
 .cell1 {
@@ -231,6 +263,22 @@ body {
     display: none;
 }
 
+.axis1 path {
+    display: none;
+}
+
+.axis2 path {
+    display: none;
+}
+
+.axis1{
+    font-weight: bold;
+}
+
+.axis2 {
+    font-weight: bold;
+}
+
 
 .axis {
     font: 12px Arial, sans-serif;
@@ -255,7 +303,25 @@ body {
     width: 50px;
 }
 
+#heatmap {
+    max-width: 1920px;
+    width: 95%;
+    background-color: lightyellow;
+    height: 125vh;
+    padding-top: 100px;
+    border: thin solid darkorange;
+    border-radius: 5px;
+}
 
+#projection {
+    max-width: 1920px;
+    width: 100%;
+    background-color: rgb(143, 125, 108);
+    height: 115vh;
+    padding-top: 100px;
+    border: thin solid darkgrey;
+    border-radius: 5px;
+}
   
 .line {
 fill: none;
@@ -306,4 +372,8 @@ stroke-width: 3px;
     top: 25%;
     left: 50%;
     transform: translate(-50%, -30%);
+}
+
+.circle:hover{
+    opacity: 0.5;
 }
