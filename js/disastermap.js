@@ -94,7 +94,7 @@ class DisasterMapVis{
 
         // define a color scale
         vis.colorScale = d3.scaleLinear()
-            .range(["orange", "darkred"])
+            .range(["#FAD437", "darkred"])
 
         // // create a legend
         vis.defs = vis.svg.append("defs");
