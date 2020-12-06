@@ -1,0 +1,309 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+#navbar {
+    padding: 20px;
+}
+
+header {    
+    text-align: center;
+    width: 100vw;
+    height: 100%;
+    position: relative;
+	overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+}
+
+header .overlay{
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	color: #FFF;
+    text-shadow: 1px 1px 1px #333;
+    background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
+}
+
+
+h1 {
+    line-height: 1;
+    margin-top: 0;
+    color: #fff;
+	display: inline-block;
+	position: relative;
+}
+
+.mega {
+    font-size: 4rem; /* 72 / 18 = 4 */
+    margin-bottom: 0.4125rem;
+}
+
+
+.quote {
+	font-family: 'Special Elite', cursive;
+	color: #3f3f5a;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+blockquote {
+	font-weight: 100;
+	font-size: 2rem;
+	max-width: 1000px;
+	line-height: 2;
+	position: relative;
+	margin: 0;
+    padding: .5rem;
+}
+
+blockquote:before,
+blockquote:after {
+	position: absolute;
+	color: #f1efe6;
+	font-size: 8rem;
+	width: 4rem;
+	height: 4rem;
+}
+
+blockquote:before {
+	content: '“';
+	left: -5rem;
+	top: -2rem;
+}
+
+blockquote:after {
+	content: '”';
+	right: -5rem;
+	bottom: 1rem;
+}
+
+cite {
+	line-height: 3;
+	text-align: left;
+}
+
+.bold{
+    font-weight: 900;
+}
+
+.montserrat{font-family: 'Montserrat'}
+
+.color-emphasis-1{color: #FF4056}
+
+
+.description {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    background: transparent;
+}
+
+#description_disaster {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    color: rgb(164,51,56);
+}
+
+.btn-container{
+    margin: auto;
+    /* height:44px; */
+    width:166.23px;
+    padding-bottom: 100px;
+  }
+
+button{
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    cursor:pointer;
+    border:none;
+    padding:8px;
+    font-size:20px;
+    background:linear-gradient(141deg, #cfb1af 0%, #d17575 51%, #df4040 100%);
+    border-radius: 40px;
+    color:white;
+    font-family:'Special Elite', 'cursive';
+    box-sizing:border-box;
+}
+
+#info{
+    display:none;
+    width: 600px;
+    line-height: 2;
+    font-family: "", "cursive";
+    font-weight: 900;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 50px;
+    background: url(../img/paper.jpg);
+}
+
+.fa-sun {
+    font-size: 30px;
+}
+
+.section {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+
+#introSection {
+    align-content: center;
+    transform: translate(-50%, -35%);
+}
+
+.pict {
+    border-radius: 15px;
+    background-position: center;
+    box-shadow: 3px 3px 3px #777;
+}
+
+body {
+    background: no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-color: #F1F3F3;
+    /*background-color: floralwhite;*/
+}
+
+.title {
+    font: 20px Arial, sans-serif;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+.subtitle {
+    font: 20px Arial, sans-serif;
+    text-align: center;
+}
+
+.legend {
+    font: 13px Arial, sans-serif;
+}
+
+.message {
+    font: 14px Arial, sans-serif;
+}
+
+.clock {
+    font: 10px Arial, sans-serif;
+}
+
+.cell1 {
+    stroke-width: 0.1;
+    stroke: #f2f2f2;
+}
+
+
+.cell2 {
+    stroke-width: 0.5;
+    stroke: #f2f2f2;
+}
+
+.cell3 {
+    stroke-width: 0.5;
+    stroke: #e6e6e6;
+}
+
+.arc:hover{
+    fill: #ffd700;
+    opacity: 0.2;
+}
+
+
+.outline {
+    stroke-width: 0.2;
+    stroke: #808080;
+}
+
+.axis path {
+    display: none;
+}
+
+
+.axis {
+    font: 12px Arial, sans-serif;
+}
+
+.interactivity {
+    stroke-width: 0.3;
+    stroke: #808080;
+}
+
+.interactivity2 {
+    stroke-width: 0.1;
+    stroke: #b3b3b3;
+}
+
+
+#total_nv {
+    text-align: center;
+}
+
+.side{
+    width: 50px;
+}
+
+
+  
+.line {
+fill: none;
+stroke: #809686;
+stroke-width: 3px;
+}
+
+.tooltip {
+    line-height: 2;
+    padding: 5px;
+    background: gray;
+    color: #fff;
+    width: 20%;
+    border-radius: 2px;
+  }
+  
+  /* Creates a small triangle extender for the tooltip */
+  .d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+  }
+  
+  /* Style northward tooltips differently */
+  .d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+  }
+
+#climateCategorySelector {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.carousel-inner {
+    width: 100%;
+    max-height: 1400px !important;
+}
+
+.transition-page {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
