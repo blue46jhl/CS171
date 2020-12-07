@@ -26,7 +26,7 @@ header .overlay{
 footer {
     position: fixed;
     text-align: center;
-    bottom: -25%;
+    bottom: -10%;
     width:100%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 100;
