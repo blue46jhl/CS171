@@ -10,7 +10,7 @@ We include all necessary instructions for the data visualizations on the website
 
 Webpage URL: https://blue46jhl.github.io/CS171/ <br />
 
-Video URL:  
+Video URL: https://youtu.be/dJ44wVRz7Zw
 
 
 
